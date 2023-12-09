@@ -3,7 +3,7 @@
 <template>
     <main>
         <div class="card">
-        <RouterView />
+          <RouterView />
         </div>
     </main>
     <p class="score">Score: 100</p>
