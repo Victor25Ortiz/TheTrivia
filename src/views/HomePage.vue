@@ -49,4 +49,8 @@ onMounted(async () => {
             }
       }
 }
+
+.score {
+  @apply absolute bottom-8 right-8 text-2xl font-bold uppercase text-slate-700;
+}
 </style>
