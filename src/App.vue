@@ -2,7 +2,7 @@
 
 <template>
     <main>
-        <div> class="card">
+        <div class="card">
         <RouterView />
         </div>
     </main>
