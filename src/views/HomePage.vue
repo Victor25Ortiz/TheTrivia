@@ -16,12 +16,12 @@ onMounted(async () => {
     <img class="logo" src="logo.svg" alt="logo" />
     <h1 class="title">Trivia-app</h1>
     <img class="logo" src="logo.svg" alt="logo" />
-  </div>
   <div class="categories">
     <RouterLink v-for="category in categories" :key="category.id" :to="`/question/category/${category.id}`"
       class="category">
       {{ category.name }}
     </RouterLink>
+  </div>
   </div>
 </template>
 
