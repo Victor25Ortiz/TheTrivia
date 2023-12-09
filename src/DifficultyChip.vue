@@ -19,6 +19,6 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
  .difficulty {
-    @apply px-4 py-2 rounded-full border  absolute uppercase text-white bottom-5 left-8 text-2xl font-bold;
+    @apply absolute bottom-6 left-8 rounded-full px-4 py-2 text-lg font-bold capitalize text-white
   }
 </style>

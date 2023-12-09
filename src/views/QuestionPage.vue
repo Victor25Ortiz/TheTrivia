@@ -1,18 +1,25 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import useAPI from '@/composables/useAPI'
 import useColor from '@/composables/useColor'
 import useScore from '@/composables/useScore';
 import BaseTitle from '@/components/BaseTitle.vue'
+import DifficultyChip from '@/DifficultyChip.vue';
 
 const route = useRoute()
+const router = useRouter()
 const colors = useColor()
 const api = useAPI()
 const question = ref(null)
 const answers = ref([])
+
 const { changeScore } = useScore()
+const handleAnswer = (points) => {
+    changeScore(points)
+    router.push('/')
+}
 onMounted(async () => {
     question.value = await api.getQuestion(route.params.id)
     answers.value.push({
@@ -39,11 +46,12 @@ onMounted(async () => {
     <p class="question">{{ question.question }}</p>
     <div class="answers">
         <div v-for="answer in answers" :key="answer.id" :class="colors.getColor(answer.id)" class="answer">
-            <div @click="changeScore(answer.points)">
+            <div @click="handleAnswer(answer.points)">
             {{ answer.answer }}
         </div>
         </div>
     </div>
+    <DifficultyChip :difficulty="question.difficulty"/>
     </div>
     <div v-else class="loading">Loading ...</div>
 </template>
